@@ -1,0 +1,122 @@
+$finalHeight: 100vh;
+$finalWidth: 3 * $finalHeight;
+$scrollBarHeight: 1px;
+::-webkit-scrollbar {
+    width: $scrollBarHeight;
+    height: $scrollBarHeight;
+}
+
+::-webkit-scrollbar-button {
+    width: $scrollBarHeight;
+    height: $scrollBarHeight;
+}
+
+body {
+    background: #111;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.horizontal-scroll-wrapper {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: calc(#{$finalHeight} + #{$scrollBarHeight});
+    max-height: $finalWidth;
+    margin: 0;
+    padding-top: $scrollBarHeight;
+    background: #333;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: rotate(-90deg) translateY(-$finalHeight);
+    transform-origin: right top;
+    & > div {
+        display: block;
+        padding: 5px;
+        height: 100vh;
+        width: 100%;
+        background: red;
+        transform: rotate(90deg);
+        transform-origin: right top;
+    }
+}
+
+.squares {
+    padding: $finalHeight 0 0 0;
+    &>div {
+        width: $finalHeight;
+        height: $finalHeight;
+        margin: 10px 0;
+    }
+}
+
+#robby {
+    position: absolute;
+    width: 200px;
+    height: 175px;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    margin: -87.3px 0 0 -100px;
+    z-index: 9;
+}
+
+#robby-slides {
+    background: url(../images/robby-slides.png);
+    width: 200px;
+    height: 200px;
+    background-position: 0px 0px;
+}
+
+.look-west {
+    background-position: 0px 200px !important;
+}
+
+#robby-close-eyes {
+    background: url(../images/robby-eyes-close.png);
+    width: 55px;
+    height: 25px;
+    top: 35px;
+    left: 90px;
+    position: absolute;
+}
+
+.walk-east {
+    animation: walk-east 0.5s steps(2) infinite;
+}
+
+.walk-west {
+    animation: walk-west 0.5s steps(2) infinite;
+}
+
+@keyframes walk-east {
+    from {
+        background-position: -200px 0px;
+    }
+    to {
+        background-position: -600px 0px;
+    }
+}
+
+@keyframes walk-west {
+    from {
+        background-position: -200px 200px;
+    }
+    to {
+        background-position: -600px 200px;
+    }
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 5em;
+    padding: 10;
+    margin: 10;
+    width: 10em;
+    height: 1.7em;
+    color: blue;
+}

@@ -1,0 +1,121 @@
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-button {
+  width: 1px;
+  height: 1px;
+}
+
+body {
+  background: #111;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.horizontal-scroll-wrapper {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: calc(100vh + 1px);
+  max-height: 300vh;
+  margin: 0;
+  padding-top: 1px;
+  background: #333;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(-90deg) translateY(-100vh);
+  transform-origin: right top;
+}
+
+.horizontal-scroll-wrapper > div {
+  display: block;
+  padding: 5px;
+  height: 100vh;
+  width: 100%;
+  background: red;
+  transform: rotate(90deg);
+  transform-origin: right top;
+}
+
+.squares {
+  padding: 100vh 0 0 0;
+}
+
+.squares > div {
+  width: 100vh;
+  height: 100vh;
+  margin: 10px 0;
+}
+
+#robby {
+  position: absolute;
+  width: 200px;
+  height: 175px;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  margin: -87.3px 0 0 -100px;
+  z-index: 9;
+}
+
+#robby-slides {
+  background: url(../images/robby-slides.png);
+  width: 200px;
+  height: 200px;
+  background-position: 0px 0px;
+}
+
+.look-west {
+  background-position: 0px 200px !important;
+}
+
+#robby-close-eyes {
+  background: url(../images/robby-eyes-close.png);
+  width: 55px;
+  height: 25px;
+  top: 35px;
+  left: 90px;
+  position: absolute;
+}
+
+.walk-east {
+  animation: walk-east 0.5s steps(2) infinite;
+}
+
+.walk-west {
+  animation: walk-west 0.5s steps(2) infinite;
+}
+
+@keyframes walk-east {
+  from {
+    background-position: -200px 0px;
+  }
+  to {
+    background-position: -600px 0px;
+  }
+}
+
+@keyframes walk-west {
+  from {
+    background-position: -200px 200px;
+  }
+  to {
+    background-position: -600px 200px;
+  }
+}
+
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 5em;
+  padding: 10;
+  margin: 10;
+  width: 10em;
+  height: 1.7em;
+  color: blue;
+}
