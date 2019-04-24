@@ -37,7 +37,7 @@ div {
   padding: 5px;
   height: 100vh;
   width: 100%;
-  background: red;
+  background: repeating-linear-gradient(90deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
   transform: rotate(90deg);
   transform-origin: right top;
 }
@@ -49,7 +49,6 @@ div {
 .squares > div {
   width: 100vh;
   height: 100vh;
-  margin: 10px 0;
 }
 
 #robby {
@@ -81,14 +80,15 @@ div {
   top: 35px;
   left: 90px;
   position: absolute;
+  opacity: 0;
 }
 
 .walk-east {
-  animation: walk-east 0.5s steps(2) infinite;
+  animation: walk-east 0.3s steps(2) infinite;
 }
 
 .walk-west {
-  animation: walk-west 0.5s steps(2) infinite;
+  animation: walk-west 0.3s steps(2) infinite;
 }
 
 @keyframes walk-east {
@@ -110,7 +110,7 @@ div {
 }
 
 p {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 5em;
   padding: 10;

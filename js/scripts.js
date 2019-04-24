@@ -1,33 +1,43 @@
 $(function () {
 
     $(document).ready(function () {
-
-        $("#robby-close-eyes").css("opacity", 0);
+        $(".horizontal-scroll-wrapper").scroll($.debounce(250, true, function () {
+            goDown();
+        }));
+        $(".horizontal-scroll-wrapper").scroll($.debounce(150, function () {
+            stopGoingDown();
+        }));
 
         // close eyes of robby
+        startBlinking();
+    });
+
+    function startBlinking() {
         setInterval(function () {
             $("#robby-close-eyes").css("opacity", 1);
             setTimeout(function () {
                 $("#robby-close-eyes").css("opacity", 0);
             }, 200)
         }, 4000);
+    }
 
-        // walk robby
-        $(document).keydown(function (event) {
-            if (event.which == 40) {
-                $("#robby-slides").addClass("walk-east").removeClass("look-west");
-                $("#robby-close-eyes").css("left", "90px");
-            }
-            if (event.which == 38) {
-                $("#robby-slides").addClass("walk-west");
-                $("#robby-close-eyes").css("left", "55px");
-            }
-        });
-        $(document).keyup(function (event) {
-            if (event.which == 40) { $("#robby-slides").removeClass("walk-east") }
-            if (event.which == 38) { $("#robby-slides").removeClass("walk-west").addClass("look-west") }
-        });
-    });
+    function goDown() {
+        $("#robby-slides").addClass("walk-east").removeClass("look-west");
+        $("#robby-close-eyes").css("left", "90px");
+    }
+
+    function stopGoingDown() {
+        $("#robby-slides").removeClass("walk-east")
+    }
+
+    function goUp() {
+        $("#robby-slides").addClass("walk-west");
+        $("#robby-close-eyes").css("left", "55px");
+    }
+
+    function stopGoingUp() {
+        $("#robby-slides").removeClass("walk-west").addClass("look-west")
+    }
     /*
     let tween1 = TweenMax.from('#exampleElement1', 1, { autoAlpha: 0, x: -200, ease: Circ.easeOut, });
     let tween2 = TweenMax.from('#exampleElement2', 1, { autoAlpha: 0, x: 200, ease: Circ.easeIn, });
