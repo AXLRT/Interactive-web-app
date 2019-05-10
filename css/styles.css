@@ -13,7 +13,8 @@ body {
 }
 
 div {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .horizontal-scroll-wrapper {
@@ -28,8 +29,10 @@ div {
   background: #333;
   overflow-y: auto;
   overflow-x: hidden;
-  transform: rotate(-90deg) translateY(-100vh);
-  transform-origin: right top;
+  -webkit-transform: rotate(-90deg) translateY(-100vh);
+          transform: rotate(-90deg) translateY(-100vh);
+  -webkit-transform-origin: right top;
+          transform-origin: right top;
 }
 
 .horizontal-scroll-wrapper > div {
@@ -38,8 +41,10 @@ div {
   height: 100vh;
   width: 100%;
   background: repeating-linear-gradient(90deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
-  transform: rotate(90deg);
-  transform-origin: right top;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: right top;
+          transform-origin: right top;
 }
 
 .squares {
@@ -84,11 +89,22 @@ div {
 }
 
 .walk-east {
-  animation: walk-east 0.3s steps(2) infinite;
+  -webkit-animation: walk-east 0.3s steps(2) infinite;
+          animation: walk-east 0.3s steps(2) infinite;
 }
 
 .walk-west {
-  animation: walk-west 0.3s steps(2) infinite;
+  -webkit-animation: walk-west 0.3s steps(2) infinite;
+          animation: walk-west 0.3s steps(2) infinite;
+}
+
+@-webkit-keyframes walk-east {
+  from {
+    background-position: -200px 0px;
+  }
+  to {
+    background-position: -600px 0px;
+  }
 }
 
 @keyframes walk-east {
@@ -97,6 +113,15 @@ div {
   }
   to {
     background-position: -600px 0px;
+  }
+}
+
+@-webkit-keyframes walk-west {
+  from {
+    background-position: -200px 200px;
+  }
+  to {
+    background-position: -600px 200px;
   }
 }
 
@@ -119,3 +144,4 @@ p {
   height: 1.7em;
   color: blue;
 }
+/*# sourceMappingURL=styles.css.map */
